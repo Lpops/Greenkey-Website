@@ -1,0 +1,16 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "greenkey-site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-I",
+        "-S",
+        "-c",
+        "from functools import partial; from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler; ThreadingHTTPServer(('127.0.0.1', 4173), partial(SimpleHTTPRequestHandler, directory='/private/tmp/claude-501/-Users-laana-Desktop-Freelance-greenkey/f3b25a9e-6734-46d5-86cc-fc87b29c8865/scratchpad/site')).serve_forever()"
+      ],
+      "port": 4173
+    }
+  ]
+}
