@@ -85,3 +85,38 @@ Redeploy. (Ask me and I'll do it — it also needs a sanity re-check of the OG t
   darkened in `css/home.css` if you want it stronger.
 - `assets/photos/spiceken-epz.jpg` (869KB) is no longer referenced by any page —
   safe to delete if you don't want it back in a project gallery later.
+
+---
+
+## 6. GitHub push (added Aug 2026)
+
+Local repo is already initialized and committed (branch `main`, 95 files). To get it onto GitHub:
+
+1. On github.com, create a new **empty** repository (no README/.gitignore/license — we already have those) named `greenkey-africa`, visibility: private.
+2. Generate a token to push with: GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token, scoped to just this repo, permission "Contents: Read and write".
+3. From `/Users/laana/Desktop/Freelance/greenkey`:
+   ```bash
+   git remote add origin https://github.com/<your-username>/greenkey-africa.git
+   git push -u origin main
+   ```
+   When git prompts for credentials, the username is your GitHub username and the password is the token from step 2 (not your GitHub account password).
+
+## 7. Deploy on Vercel (account setup)
+
+1. Sign up at vercel.com — choose "Continue with GitHub" so Vercel can import the repo directly.
+2. Add New Project → Import `greenkey-africa`.
+3. **Root Directory: `website`** — critical, the repo root is not the deploy root.
+4. Deploy, then add the env vars from section 3 above and redeploy.
+
+## 8. Move greenkeyafrica.com off Wix and onto Vercel
+
+The domain is registered *and* currently hosted at Wix — no need to transfer registrars, just repoint DNS.
+
+1. In Vercel: Project → Settings → Domains → add `greenkeyafrica.com` and `www.greenkeyafrica.com`. Vercel shows a domain card with the exact A-record IP and CNAME target **for this specific project** — Vercel now hands out different values per project/account, so use whatever is shown there, not a value copied from elsewhere or from an old guide.
+2. In Wix: account → Domains → select `greenkeyafrica.com` → find "DNS Records" / "Advanced DNS" (this is domain management, separate from the website editor). If it's set to "Connect to a Wix site," switch it to manual DNS records.
+3. Remove any existing A/AAAA/CNAME records Wix added for `@` and `www`, then add:
+   - A record, host `@`, value = the IP from Vercel's domain card
+   - CNAME record, host `www`, value = the target from Vercel's domain card
+4. Check for a CAA record on the domain. If present and it doesn't allow `letsencrypt.org`, Vercel's SSL certificate will get stuck generating — update or remove it.
+5. Propagation can take minutes to ~48 hours. Vercel's Domains page shows "Invalid Configuration" until the records resolve, then flips to "Valid Configuration" and auto-issues SSL.
+6. Once the real domain is confirmed live, do the URL swap in section 5 above and redeploy.

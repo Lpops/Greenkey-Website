@@ -70,9 +70,16 @@ img { max-width: 100%; }
 }
 
 /* ---------- Hero (full-bleed) ---------- */
+/* Sized to the viewport minus the sticky nav so the headline and CTAs always
+   land above the fold. --nav-h must track the real nav height at each
+   breakpoint; svh keeps it stable while mobile browser chrome moves. */
+:root { --nav-h: 75px; }
 .gk-hero {
   position: relative;
-  height: 960px;
+  height: calc(100vh - var(--nav-h));
+  height: calc(100svh - var(--nav-h));
+  min-height: 560px;
+  max-height: 960px;
   overflow: hidden;
 }
 .gk-hero__media {
@@ -164,9 +171,15 @@ img { max-width: 100%; }
   border-radius: var(--radius-sm);
   filter: grayscale(1);
   opacity: 0.62;
+  /* Raster logos ship on a white plate; multiply drops it into the cream page
+     the way the transparent SVGs already sit. */
+  mix-blend-mode: multiply;
   transition: filter 0.15s ease, opacity 0.15s ease;
 }
 .gk-logos img:hover { filter: grayscale(0); opacity: 1; }
+/* Stacked lockup rather than a wide wordmark: let it run taller so its optical
+   weight matches the horizontal logos either side. */
+.gk-logos img[alt="Best Energy"] { width: auto; height: 58px; }
 
 /* ---------- Pillars ---------- */
 .gk-pillars { padding-top: 80px; padding-bottom: 96px; }
@@ -380,8 +393,12 @@ img { max-width: 100%; }
   .nav__links li { padding: 8px 0; }
   .nav__links .ds-btn { width: 100%; margin-top: 8px; }
 
-  .gk-hero { height: auto; min-height: 640px; }
-  .gk-hero__inner { padding-top: 140px; padding-bottom: 48px; }
+  .gk-hero {
+    --nav-h: 80px;
+    min-height: 520px;
+    max-height: none;
+  }
+  .gk-hero__inner { padding-bottom: 40px; }
   .gk-hero h1 { font-size: 34px; line-height: 40px; }
 
   .gk-partners { padding-top: 56px; padding-bottom: 56px; }

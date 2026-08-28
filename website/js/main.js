@@ -1,5 +1,8 @@
 /* GREENKEY AFRICA: shared interactions */
 (function () {
+  // Opt in to the scroll-reveal styles only once JS is confirmed running.
+  document.documentElement.classList.add("js");
+
   // Sticky nav
   const nav = document.querySelector(".nav");
   const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 40);
