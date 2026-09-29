@@ -70,7 +70,7 @@ Vercel → **Settings → Domains** → add `greenkeyafrica.com`, then update th
 hard-coded absolute URLs:
 
 ```bash
-cd /Users/laana/Desktop/Freelance/greenkey/website && grep -rl "greenkey-africa.vercel.app" . | xargs sed -i '' 's|https://greenkey-africa.vercel.app|https://greenkeyafrica.com|g'
+cd /Users/laana/Desktop/Freelance/greenkey/website && grep -rl "greenkey-africa.vercel.app" . | xargs sed -i '' 's|https://greenkeyafrica.com|https://greenkeyafrica.com|g'
 ```
 
 Redeploy. (Ask me and I'll do it — it also needs a sanity re-check of the OG tags.)

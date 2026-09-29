@@ -1,0 +1,30 @@
+DNS snapshot for greenkeyafrica.com
+Captured: 2026-09-29 14:16 UTC
+Purpose: restore reference before repointing DNS from Wix to Vercel.
+
+== Registrar ==
+Wix.com Ltd.  |  nameservers ns4.wixdns.net / ns5.wixdns.net
+Registration expires: 2027-10-23
+
+== A (root) - WILL CHANGE to Vercel ==
+185.230.63.171
+185.230.63.107
+185.230.63.186
+
+== CNAME www - WILL CHANGE to Vercel ==
+cdn3.wixdns.net.
+
+== MX - DO NOT TOUCH (Google Workspace, carries naheed.popat@) ==
+0 aspmx.l.google.com.
+10 alt1.aspmx.l.google.com.
+20 alt2.aspmx.l.google.com.
+30 aspmx2.googlemail.com.
+40 aspmx3.googlemail.com.
+
+== TXT ==
+
+== Other common records ==
+CNAME calendar -> login.secureserver.net.
+CNAME mail -> pop.secureserver.net.
+_dmarc TXT: 
+google._domainkey TXT: 
