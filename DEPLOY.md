@@ -49,7 +49,7 @@ Vercel → Project → **Settings → Environment Variables**. Add to *all* envi
 | Name             | Value                                                  |
 | ---------------- | ------------------------------------------------------ |
 | `RESEND_API_KEY` | the key from step 1                                    |
-| `CONTACT_TO`     | `info@greenkeyafrica.com` (comma-separate for several) |
+| `CONTACT_TO`     | `naheed.popat@greenkeyafrica.com` (comma-separate for several) |
 | `CONTACT_FROM`   | `Greenkey Africa <site@greenkeyafrica.com>`            |
 
 Leave `CONTACT_FROM` unset only if you skipped domain verification — read the warning above.
@@ -77,14 +77,26 @@ Redeploy. (Ask me and I'll do it — it also needs a sanity re-check of the OG t
 
 ---
 
-## Known gaps at launch
+## Known gaps
 
-- **Advisor section** on `/services` is still placeholder copy — real bios pending.
+**Blocking: the contact forms cannot send.** Verified live on 29 Sep 2026: the
+function is deployed and routing (a GET to `/api/contact` correctly returns 405),
+but every POST returns `500 "The contact form isn't configured yet"`. That is the
+branch that fires when `RESEND_API_KEY` or `CONTACT_TO` is missing, so the
+environment variables in section 3 have not been set in Vercel yet. Until they
+are, every enquiry submitted on the live site is lost. Set them, redeploy, then
+re-test.
+
+Non-blocking:
+
 - `/favicon.ico` 404s for legacy browsers. Modern ones use `assets/favicon.svg`.
 - Hero text contrast over the pale river photo is on the soft side; the scrim can be
   darkened in `css/home.css` if you want it stronger.
-- `assets/photos/spiceken-epz.jpg` (869KB) is no longer referenced by any page —
-  safe to delete if you don't want it back in a project gallery later.
+- ~1.1MB of unreferenced images remain in `assets/photos/` from the previous home
+  page's project gallery (`spiceken-epz.jpg` alone is 869KB). They cost nothing in
+  page weight but bloat the repo. Safe to delete unless the gallery comes back.
+- Asset links carry a `?v=` cache-busting token. Bump it in all three HTML files
+  whenever `css/` or `js/` changes, or returning visitors keep the old file.
 
 ---
 
