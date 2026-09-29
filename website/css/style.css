@@ -639,6 +639,61 @@ section { position: relative; z-index: 2; }
   background: var(--gold);
 }
 
+/* ---------- Contact panel (replaces the enquiry forms) ---------- */
+.contact-panel {
+  background: var(--card-on-sand);
+  border-radius: var(--radius-lg);
+  padding: clamp(2rem, 5vw, 3.5rem);
+  box-shadow: var(--shadow-card);
+}
+.contact-panel h3 { font-size: 1.5rem; margin-bottom: 0.6rem; }
+.contact-panel > p { color: var(--ink-soft); margin-bottom: 1.6rem; }
+/* The address sits below the button, not inside it: it is too long to fit a
+   pill at phone widths without wrapping mid-word. */
+.contact-panel__address {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  overflow-wrap: anywhere;
+}
+.contact-panel__address:hover { color: var(--green-deep); }
+.contact-panel--warm .contact-panel__address:hover { color: var(--terra); }
+.contact-panel__hint {
+  margin-top: 2rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--line);
+}
+.contact-panel__hint-label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.9rem;
+}
+.contact-panel__hint ul { list-style: none; margin: 0; padding: 0; }
+.contact-panel__hint li {
+  position: relative;
+  padding: 0.4rem 0 0.4rem 1.5rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.contact-panel__hint li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.95rem;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+}
+.contact-panel--warm .contact-panel__hint li::before { background: var(--gold); }
+
 /* ---------- Forms ---------- */
 .form-panel {
   background: var(--card-on-sand);

@@ -2,7 +2,7 @@
 //
 // Required environment variables (set in the Vercel dashboard):
 //   RESEND_API_KEY  Resend API key.
-//   CONTACT_TO      Destination inbox, e.g. info@greenkeyafrica.com
+//   CONTACT_TO      Destination inbox, e.g. naheed.popat@greenkeyafrica.com
 //   CONTACT_FROM    Verified sender, e.g. "Greenkey Africa <site@greenkeyafrica.com>".
 //                   Until a domain is verified in Resend, leave this unset: it falls
 //                   back to onboarding@resend.dev, which can ONLY deliver to the email

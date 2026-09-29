@@ -128,14 +128,14 @@
         } else {
           btn.textContent = original;
           say(
-            body.error || "Something went wrong. Please email info@greenkeyafrica.com.",
+            body.error || "Something went wrong. Please email naheed.popat@greenkeyafrica.com.",
             "error"
           );
         }
       } catch (err) {
         btn.textContent = original;
         say(
-          "Couldn't reach the server. Please email info@greenkeyafrica.com.",
+          "Couldn't reach the server. Please email naheed.popat@greenkeyafrica.com.",
           "error"
         );
       } finally {
