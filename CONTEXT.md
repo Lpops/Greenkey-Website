@@ -85,7 +85,7 @@ with contact panels: an "Email us" button, the address, and a "Helpful to
 include" checklist that preserves the prompting the form fields used to do.
 
 `api/contact.js` and its handler in `main.js` are **still in the repo but
-dormant** — nothing references them. Re-enabling means restoring the form markup
+dormant**, nothing references them. Re-enabling means restoring the form markup
 and setting `RESEND_API_KEY`, `CONTACT_TO`, `CONTACT_FROM`. Resend also needs
 `greenkeyafrica.com` verified, otherwise its fallback sender only delivers to the
 Resend account owner.
@@ -127,7 +127,7 @@ exists and can be reassigned a free `wixsite.com` address.
 ## Open items
 
 **Canonical points at the apex, but `www` is what serves.** Vercel has `www` as
-the primary domain, so `greenkeyafrica.com` 308s to `www.greenkeyafrica.com` —
+the primary domain, so `greenkeyafrica.com` 308s to `www.greenkeyafrica.com` -
 while every `canonical`, `og:url` and sitemap entry says the apex. The cleanest
 fix is to make the apex primary in Vercel, which needs no code change. The
 alternative is rewriting those 16 URLs to `www`. Decide one way; do not leave
