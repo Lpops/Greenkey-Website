@@ -12,7 +12,7 @@ Last verified: 30 September 2026.
 | | |
 | --- | --- |
 | Live URL | <https://www.greenkeyafrica.com> |
-| Apex | `greenkeyafrica.com` 308-redirects to `www` |
+| Apex | `greenkeyafrica.com` 308-redirects to `www` (www is primary) |
 | Host | Vercel, auto-deploying from `main` |
 | Repo | <https://github.com/Lpops/Greenkey-Website> |
 | Deploy root | `website/` (**not** the repo root) |
@@ -126,12 +126,11 @@ exists and can be reassigned a free `wixsite.com` address.
 
 ## Open items
 
-**Canonical points at the apex, but `www` is what serves.** Vercel has `www` as
-the primary domain, so `greenkeyafrica.com` 308s to `www.greenkeyafrica.com` -
-while every `canonical`, `og:url` and sitemap entry says the apex. The cleanest
-fix is to make the apex primary in Vercel, which needs no code change. The
-alternative is rewriting those 16 URLs to `www`. Decide one way; do not leave
-them disagreeing.
+**Canonical resolved.** Vercel serves `www` as the primary domain and the apex
+308-redirects to it, so all canonical, `og:url`, sitemap and robots URLs were
+pointed at `https://www.greenkeyafrica.com`. If you later prefer the bare apex
+as the public URL, flip the primary domain in Vercel and rewrite those 16 URLs
+back; do not change one without the other.
 
 **No Projects page.** The old Wix site had one; this site has no equivalent, and
 11 optimised project photos sit unreferenced in `assets/photos/` (I&M HQ, Vienna
